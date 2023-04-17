@@ -4,14 +4,14 @@ export const ButtonWrapper = styled.button`
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  padding: 0.6rem 2rem;
+  padding: calc(.9rem - .4vw) 2rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   color: #fff;
   background: #1f1f1f;
   transition: all 0.2s ease-in-out;
-  font-size: 1rem;
+  font-size: calc(1.2rem - .2vw);
 
   &:hover {
     background: #424242;

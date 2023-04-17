@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const NavbarWrapper = styled.nav`
   width: 100vw;
-  height: 5rem;
+  height: 4.5rem;
   position: sticky;
   top: 0;
   background-color: #f6f7ff;

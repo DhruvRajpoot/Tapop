@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import {  LogoText, LogoWrapper } from "../Navbar/Navbar.style";
+import { LogoText, LogoWrapper } from "../Navbar/Navbar.style";
 
 export const SidebarWrapper = styled.div`
   width: 250px;
   height: 100vh;
-  color:#cacad5;
-  background-color: #5e648e;
+  color: #cacad5;
+  background-color: #51567d;
   position: sticky;
   top: 0;
   left: 0;
@@ -24,7 +24,6 @@ export const SidebarWrapper = styled.div`
     transform: ${({ isOpen }) =>
       isOpen ? "translateX(0)" : "translateX(-100%)"};
     justify-content: center;
-
   }
 `;
 
@@ -35,11 +34,11 @@ export const LogoContainer = styled.div`
   gap: 2rem;
 `;
 
-export const SideLogoWrapper=styled(LogoWrapper)`
+export const SideLogoWrapper = styled(LogoWrapper)`
   @media (max-width: 768px) {
     display: none;
   }
-`
-export const Text=styled(LogoText)`
+`;
+export const Text = styled(LogoText)`
   color: white;
-`
+`;

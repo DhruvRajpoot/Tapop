@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../components/Sidebar/Sidebar";
 import Navbar from "../components/Navbar/Navbar";
 import { MainContainer, MainContent } from "./MainStyle";
+import ModalJs from "../components/ModalJs/ModalJs";
 
 const Main = () => {
   return (
@@ -9,7 +10,9 @@ const Main = () => {
       <Navbar />
       <MainContainer>
         <Sidebar />
-        <MainContent />
+        <MainContent>
+          <ModalJs />
+        </MainContent>
       </MainContainer>
     </>
   );

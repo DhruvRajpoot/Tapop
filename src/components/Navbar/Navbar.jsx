@@ -6,7 +6,7 @@ import logo from "../../assets/images/logo.png";
 import { AppContext } from "../../Context/AppContext";
 
 const Navbar = () => {
-  const { isOpen, setIsOpen } = useContext(AppContext);
+  const { sidebarIsOpen,setSidebarIsOpen } = useContext(AppContext);
 
   return (
     <NavbarWrapper>
@@ -14,8 +14,8 @@ const Navbar = () => {
         <Logo src={logo} alt="Logo" />
         <LogoText>Tapop</LogoText>
       </LogoWrapper>
-      <HamBurger onClick={() => setIsOpen(!isOpen)}>
-        {isOpen?<VscChromeClose/>:<CgMenuGridR />}
+      <HamBurger onClick={() => setSidebarIsOpen(!sidebarIsOpen)}>
+        {sidebarIsOpen?<VscChromeClose/>:<CgMenuGridR />}
       </HamBurger>
     </NavbarWrapper>
   );

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { LogoContainer, SideLogoWrapper, SidebarWrapper, Text } from "./SidebarStyle";
+import {  LogoContainer, SideLogoWrapper, SidebarWrapper, Text} from "./SidebarStyle";
 import { Logo } from "../Navbar/Navbar.style";
 import logo from "../../assets/images/logo.png";
 import Button from "../Button/Button";
@@ -8,19 +8,23 @@ import { AiOutlineForm } from "react-icons/ai";
 import { AppContext } from "../../Context/AppContext";
 
 const Sidebar = () => {
-  const { isOpen } = useContext(AppContext);
-
+  const { sidebarIsOpen,setSidebarIsOpen,setModalIsOpen,modalIsOpen} = useContext(AppContext);
+  const openModal = () => {
+    setModalIsOpen(!modalIsOpen);
+    setSidebarIsOpen(!sidebarIsOpen);
+  };
+  
   return (
-    <SidebarWrapper isOpen={isOpen}>
+    <SidebarWrapper isOpen={sidebarIsOpen}>
       <LogoContainer>
         <SideLogoWrapper>
           <Logo src={logo} alt="Logo" />
           <Text>Tapop</Text>
         </SideLogoWrapper>
-        <Button onclickFunc={() => console.log("Clicked Button 1")} icon={<GiClick/>} title="Button 1" />
-        <Button onclickFunc={() => console.log("Clicked Button 2")} icon={<GiClick/>} title="Button 2" />
+        <Button onClickFunc={() => console.log("Clicked Button 1")} icon={<GiClick />} title="Button 1"/>
+        <Button onClickFunc={() => console.log("Clicked Button 2")} icon={<GiClick />} title="Button 2"/>
       </LogoContainer>
-        <Button onclickFunc={() => console.log("Clicked 3")} icon={<AiOutlineForm/>} title="Open Form" />
+      <Button onClickFunc={() => {openModal()}} icon={<AiOutlineForm />} title="Open Form"/>
     </SidebarWrapper>
   );
 };
