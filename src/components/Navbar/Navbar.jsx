@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <NavbarWrapper>
-      <LogoWrapper>
+      <LogoWrapper to='/'>
         <Logo src={logo} alt="Logo" />
         <LogoText>Tapop</LogoText>
       </LogoWrapper>

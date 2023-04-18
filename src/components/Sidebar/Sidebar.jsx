@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import {  LogoContainer, SideLogoWrapper, SidebarWrapper, Text} from "./SidebarStyle";
+import {  LogoContainer, SideLogoWrapper, SidebarWrapper, Text,CustomLink} from "./SidebarStyle";
 import { Logo } from "../Navbar/Navbar.style";
 import logo from "../../assets/images/logo.png";
 import Button from "../Button/Button";
 import { GiClick } from "react-icons/gi";
 import { AiOutlineForm } from "react-icons/ai";
+import { FaHome } from "react-icons/fa";
 import { AppContext } from "../../Context/AppContext";
 
 const Sidebar = () => {
@@ -17,14 +18,14 @@ const Sidebar = () => {
   return (
     <SidebarWrapper isOpen={sidebarIsOpen}>
       <LogoContainer>
-        <SideLogoWrapper>
+        <SideLogoWrapper to='/'>
           <Logo src={logo} alt="Logo" />
           <Text>Tapop</Text>
         </SideLogoWrapper>
-        <Button onClickFunc={() => console.log("Clicked Button 1")} icon={<GiClick />} title="Button 1"/>
-        <Button onClickFunc={() => console.log("Clicked Button 2")} icon={<GiClick />} title="Button 2"/>
+        <CustomLink to='/'><Button icon={<FaHome />} title="Home"/></CustomLink>
+        <CustomLink to='/forms'><Button icon={<GiClick />} title="Show Forms"/></CustomLink>
       </LogoContainer>
-      <Button onClickFunc={() => {openModal()}} icon={<AiOutlineForm />} title="Open Form"/>
+      <Button onClickFunc={() => {openModal()}} icon={<AiOutlineForm />} title="Fill Form"/>
     </SidebarWrapper>
   );
 };

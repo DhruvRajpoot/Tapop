@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const NavbarWrapper = styled.nav`
   width: 100vw;
@@ -21,7 +22,8 @@ export const NavbarWrapper = styled.nav`
   }
 `;
 
-export const LogoWrapper = styled.div`
+export const LogoWrapper = styled(Link)`
+  text-decoration: none;
   display: flex;
   gap: calc(.5rem + .5vw);
   align-items: center;

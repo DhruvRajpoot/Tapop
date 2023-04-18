@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { LogoText, LogoWrapper } from "../Navbar/Navbar.style";
+import { Link } from "react-router-dom";
 
 export const SidebarWrapper = styled.div`
   width: 250px;
@@ -41,4 +42,8 @@ export const SideLogoWrapper = styled(LogoWrapper)`
 `;
 export const Text = styled(LogoText)`
   color: white;
+`;
+
+export const CustomLink = styled(Link)`
+  text-decoration: none;
 `;

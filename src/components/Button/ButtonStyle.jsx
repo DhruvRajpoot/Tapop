@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const ButtonWrapper = styled.button`
   display: flex;
-  gap: 0.5rem;
   align-items: center;
-  padding: calc(.9rem - .4vw) 2rem;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: .6rem;
+  width: 12rem;
   border: none;
   border-radius: 5px;
   cursor: pointer;
