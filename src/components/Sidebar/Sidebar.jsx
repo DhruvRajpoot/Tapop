@@ -14,6 +14,10 @@ const Sidebar = () => {
     setModalIsOpen(!modalIsOpen);
     setSidebarIsOpen(!sidebarIsOpen);
   };
+
+  const closeSidebar = () => {
+    setSidebarIsOpen(!sidebarIsOpen);
+  };
   
   return (
     <SidebarWrapper isOpen={sidebarIsOpen}>
@@ -22,8 +26,8 @@ const Sidebar = () => {
           <Logo src={logo} alt="Logo" />
           <Text>Tapop</Text>
         </SideLogoWrapper>
-        <CustomLink to='/'><Button icon={<FaHome />} title="Home"/></CustomLink>
-        <CustomLink to='/forms'><Button icon={<GiClick />} title="Show Forms"/></CustomLink>
+        <CustomLink to='/'><Button onClickFunc={()=>{closeSidebar()}} icon={<FaHome />} title="Home"/></CustomLink>
+        <CustomLink to='/forms'><Button onClickFunc={()=>{closeSidebar()}} icon={<GiClick />} title="Show Forms"/></CustomLink>
       </LogoContainer>
       <Button onClickFunc={() => {openModal()}} icon={<AiOutlineForm />} title="Fill Form"/>
     </SidebarWrapper>

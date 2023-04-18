@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef} from "react";
 import Modal from "react-modal";
 import {
   ModalWrapper,
@@ -16,7 +16,7 @@ import {
 } from "./ModalStyle";
 import { AppContext } from "../../Context/AppContext";
 import { AiFillCloseSquare } from "react-icons/ai";
-import axios from "axios";
+import useAxios from "../../utils/useAxios";
 
 Modal.setAppElement("#root");
 const ModalJs = () => {
@@ -25,6 +25,7 @@ const ModalJs = () => {
   const thankYouRef = useRef(null);
   const isScreenSmall = window.matchMedia("(max-width: 768px)").matches;
   const formData = new FormData();
+  const api = useAxios();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,13 +33,15 @@ const ModalJs = () => {
     formData.append("email", e.target.email.value);
     formData.append("image", e.target.image.files[0]);
 
-    const res= await axios.post("http://localhost:8080/form/upload", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    }); 
-    console.log(res)
-
+    try {
+      await api.post("/form/upload", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
     modalRef.current.style.visibility = "hidden";
     thankYouRef.current.style.visibility = "visible";
   };

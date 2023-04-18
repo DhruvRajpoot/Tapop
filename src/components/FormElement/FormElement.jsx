@@ -9,7 +9,6 @@ import {
 
 const FormElement = (props) => {
     const { name,email,image } = props.data;
-    const imageSrc=`${process.env.REACT_APP_SERVER_BASEURL}/public/images/${image}`;
 
   return (
     <FormElementContainer>
@@ -25,7 +24,7 @@ const FormElement = (props) => {
 
       <ContentElement>
         <Para>Image:</Para>
-        <Anchor href={imageSrc} target="_blank" title="view in full screen"><Img src={imageSrc} alt="form image" /></Anchor>
+        <Anchor href={image} target="_blank" title="view in full screen"><Img src={image} alt="form image" /></Anchor>
       </ContentElement>
     </FormElementContainer>
   );
