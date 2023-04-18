@@ -9,7 +9,7 @@ import {
 
 const FormElement = (props) => {
     const { name,email,image } = props.data;
-    const imageSrc=`http://localhost:8080/public/images/${image}`;
+    const imageSrc=`${process.env.REACT_APP_SERVER_BASEURL}/public/images/${image}`;
 
   return (
     <FormElementContainer>
