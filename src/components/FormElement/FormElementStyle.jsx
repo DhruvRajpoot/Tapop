@@ -9,7 +9,7 @@ export const FormElementContainer = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.256);
   gap: 1rem;
-  padding:1rem;
+  padding: 1rem;
   background-color: #f5f5f580;
 
   @media (max-width: 768px) {
@@ -20,7 +20,7 @@ export const FormElementContainer = styled.div`
 export const ContentElement = styled.div`
   display: flex;
   flex-direction: column;
-  gap: .3rem;
+  gap: 0.3rem;
 `;
 
 export const Para = styled.p`
@@ -32,4 +32,12 @@ export const Img = styled.img`
   height: 10rem;
   object-fit: fit;
   border-radius: 10px;
+`;
+
+export const Anchor = styled.a`
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.01);
+  }
 `;

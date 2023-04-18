@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Anchor,
   ContentElement,
   FormElementContainer,
   Img,
@@ -8,6 +9,7 @@ import {
 
 const FormElement = (props) => {
     const { name,email,image } = props.data;
+    const imageSrc=`http://localhost:8080/public/images/${image}`;
 
   return (
     <FormElementContainer>
@@ -23,7 +25,7 @@ const FormElement = (props) => {
 
       <ContentElement>
         <Para>Image:</Para>
-        <Img src={`${"http://localhost:8080/public/images/"}${image}`} alt="form image" />
+        <Anchor href={imageSrc} target="_blank" title="view in full screen"><Img src={imageSrc} alt="form image" /></Anchor>
       </ContentElement>
     </FormElementContainer>
   );

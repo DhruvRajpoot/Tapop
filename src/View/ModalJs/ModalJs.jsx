@@ -74,7 +74,7 @@ const ModalJs = () => {
         <AiFillCloseSquare />
       </CloseButton>
       <ModalWrapper ref={modalRef}>
-        <Heading>Contact Form</Heading>
+        <Heading>Details Form</Heading>
         <Form onSubmit={handleSubmit}>
           <InputWrapper>
             <Label>Name</Label>
@@ -100,8 +100,8 @@ const ModalJs = () => {
           <SubmitButton type="submit">Submit</SubmitButton>
         </Form>
         <ThankYouWrapper ref={thankYouRef}>
-          <ThankYou>Thank You</ThankYou>
-          <Description>We will contact you soon &#128521;</Description>
+          <ThankYou>Congratulation</ThankYou>
+          <Description>Form has been filled successfully &#128521;</Description>
         </ThankYouWrapper>
       </ModalWrapper>
     </Modal>
