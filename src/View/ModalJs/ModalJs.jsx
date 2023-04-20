@@ -81,14 +81,15 @@ const ModalJs = () => {
         {" "}
         <AiFillCloseSquare />
       </CloseButton>
+        <ModalWrapper ref={modalRef}>
       {loading ? (
         <LoaderWrapper>
           <Loader />
         </LoaderWrapper>
       ) : (
-        <ModalWrapper ref={modalRef}>
-          <Heading>Details Form</Heading>
-          <Form onSubmit={handleSubmit}>
+        <>
+            <Heading>Details Form</Heading>
+        <Form onSubmit={handleSubmit}>
             <InputWrapper>
               <Label>Name</Label>
               <Input type="text" name="name" placeholder="Name" required />
@@ -103,12 +104,13 @@ const ModalJs = () => {
             </InputWrapper>
             <SubmitButton type="submit">Submit</SubmitButton>
           </Form>
+          </>
+          )}
           <ThankYouWrapper ref={thankYouRef}>
             <ThankYou>Congratulation</ThankYou>
             <Description>Form has been filled successfully &#128521;</Description>
           </ThankYouWrapper>
         </ModalWrapper>
-      )}
     </Modal>
   );
 };
