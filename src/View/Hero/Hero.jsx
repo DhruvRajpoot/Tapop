@@ -9,8 +9,8 @@ const Hero = () => {
 
   
   const transformImage = (e) => {
-    const contraintX = 20;
-    const contraintY = 30;
+    const contraintX = 30;
+    const contraintY = 50;
     const { clientX, clientY } = e;
     const { width, height } = window.screen;
     const xCenter = clientX - width / 2;
@@ -21,8 +21,10 @@ const Hero = () => {
   };
 
   useEffect(() => {
+    if(window.innerWidth>768){
     heroRef.current.addEventListener("mousemove", transformImage);
     heroRef.current.addEventListener("touchmove", transformImage);
+    }
     //eslint-disable-next-line
   }, []);
 

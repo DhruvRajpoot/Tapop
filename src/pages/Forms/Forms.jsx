@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { FormContainer, FormWrapper, Heading } from "./FormsStyle";
+import {
+  FormContainer,
+  FormWrapper,
+  Heading,
+  ItemContainer,
+} from "./FormsStyle";
 import FormElement from "../../components/FormElement/FormElement";
 import useAxios from "../../utils/useAxios";
 import Loader from "../../components/Loader/Loader";
@@ -33,11 +38,13 @@ const Forms = () => {
         <FormContainer>
           <Heading>Filled Forms</Heading>
           <FormWrapper>
-            {(Object.keys(formData).length !== 0 ? formData.data : [])?.map(
-              (ele, index) => {
-                return <FormElement key={index} data={ele} />;
-              }
-            )}
+            <ItemContainer>
+              {(Object.keys(formData).length !== 0 ? formData.data : [])?.map(
+                (ele, index) => {
+                  return <FormElement key={index} data={ele} />;
+                }
+              )}
+            </ItemContainer>
           </FormWrapper>
         </FormContainer>
       )}

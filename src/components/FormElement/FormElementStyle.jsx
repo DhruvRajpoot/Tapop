@@ -29,7 +29,7 @@ export const Para = styled.p`
 
 export const Img = styled.img`
   width: 100%;
-  height: 10rem;
+  height: calc(15rem - 5vw);
   object-fit: fit;
   border-radius: 10px;
 `;
@@ -38,6 +38,7 @@ export const Anchor = styled.a`
   text-decoration: none;
 
   &:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
+    transition: all 0.3s;
   }
 `;

@@ -21,6 +21,10 @@ export const ImageWrapper = styled.button`
   padding: 0 1rem;
   position: relative;
   background: transparent;
+
+  @media (max-width: 768px) {
+    width: 94%;
+  }
 `;
 
 export const Image = styled.img`
