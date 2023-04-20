@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useState, useContext, useRef } from "react";
 import Modal from "react-modal";
 import {
   ModalWrapper,
@@ -13,10 +13,12 @@ import {
   SubmitButton,
   ThankYou,
   ThankYouWrapper,
+  LoaderWrapper,
 } from "./ModalStyle";
 import { AppContext } from "../../Context/AppContext";
 import { AiFillCloseSquare } from "react-icons/ai";
 import useAxios from "../../utils/useAxios";
+import Loader from "../../components/Loader/Loader";
 
 Modal.setAppElement("#root");
 const ModalJs = () => {
@@ -25,6 +27,7 @@ const ModalJs = () => {
   const thankYouRef = useRef(null);
   const isScreenSmall = window.matchMedia("(max-width: 768px)").matches;
   const formData = new FormData();
+  const [loading, setLoading] = useState(false);
   const api = useAxios();
 
   const handleSubmit = async (e) => {
@@ -33,6 +36,7 @@ const ModalJs = () => {
     formData.append("email", e.target.email.value);
     formData.append("image", e.target.image.files[0]);
 
+    setLoading(true);
     try {
       await api.post("/form/upload", formData, {
         headers: {
@@ -42,6 +46,7 @@ const ModalJs = () => {
     } catch (err) {
       console.log(err);
     }
+    setLoading(false);
     modalRef.current.style.visibility = "hidden";
     thankYouRef.current.style.visibility = "visible";
   };
@@ -76,37 +81,34 @@ const ModalJs = () => {
         {" "}
         <AiFillCloseSquare />
       </CloseButton>
-      <ModalWrapper ref={modalRef}>
-        <Heading>Details Form</Heading>
-        <Form onSubmit={handleSubmit}>
-          <InputWrapper>
-            <Label>Name</Label>
-            <Input type="text" name="name" placeholder="Name" required />
-          </InputWrapper>
-          <InputWrapper>
-            <Label>Email</Label>
-            <Input type="email" name="email" placeholder="Email" required />
-          </InputWrapper>
-          <InputWrapper>
-            <Label>
-              {" "}
-              Image <small>&#40;only png/jpeg &#41;</small>
-            </Label>
-            <FileInput
-              type="file"
-              name="image"
-              placeholder="Image"
-              accept="image/png, image/jpeg"
-              required
-            />
-          </InputWrapper>
-          <SubmitButton type="submit">Submit</SubmitButton>
-        </Form>
-        <ThankYouWrapper ref={thankYouRef}>
-          <ThankYou>Congratulation</ThankYou>
-          <Description>Form has been filled successfully &#128521;</Description>
-        </ThankYouWrapper>
-      </ModalWrapper>
+      {loading ? (
+        <LoaderWrapper>
+          <Loader />
+        </LoaderWrapper>
+      ) : (
+        <ModalWrapper ref={modalRef}>
+          <Heading>Details Form</Heading>
+          <Form onSubmit={handleSubmit}>
+            <InputWrapper>
+              <Label>Name</Label>
+              <Input type="text" name="name" placeholder="Name" required />
+            </InputWrapper>
+            <InputWrapper>
+              <Label>Email</Label>
+              <Input type="email" name="email" placeholder="Email" required />
+            </InputWrapper>
+            <InputWrapper>
+              <Label> {" "} Image <small>&#40;only png/jpeg &#41;</small></Label>
+              <FileInput type="file" name="image" placeholder="Image" accept="image/png, image/jpeg" required/>
+            </InputWrapper>
+            <SubmitButton type="submit">Submit</SubmitButton>
+          </Form>
+          <ThankYouWrapper ref={thankYouRef}>
+            <ThankYou>Congratulation</ThankYou>
+            <Description>Form has been filled successfully &#128521;</Description>
+          </ThankYouWrapper>
+        </ModalWrapper>
+      )}
     </Modal>
   );
 };

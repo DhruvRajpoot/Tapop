@@ -10,6 +10,13 @@ export const ModalWrapper = styled.div`
   height: 100%;
 `;
 
+export const LoaderWrapper = styled.div`
+  min-height: calc(20rem + 5vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const CloseButton = styled.button`
   position: absolute;
   top: calc(1rem + .5vw);
