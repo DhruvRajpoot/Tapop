@@ -17,7 +17,7 @@ export const NavbarWrapper = styled.nav`
   padding: 0 1rem;
   display: none;
   
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     display: flex;
   }
 `;

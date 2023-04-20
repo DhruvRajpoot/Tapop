@@ -6,6 +6,10 @@ export const ImageViewContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @media (max-width: 768px) {
+    min-height: 60vh;
+  }
 `;
 
 export const ImageWrapper = styled.button`
@@ -16,8 +20,7 @@ export const ImageWrapper = styled.button`
   transform: scale(1);
   padding: 0 1rem;
   position: relative;
-  background:transparent;
-  
+  background: transparent;
 `;
 
 export const Image = styled.img`
@@ -41,6 +44,10 @@ export const Image = styled.img`
     rgba(161, 118, 255, 0.6044467787114846) 100%
   );
   box-shadow: 0 0 10px rgb(24, 5, 47);
+
+  @media (max-width: 768px) {
+    min-height: 50vh;
+  }
 `;
 
 export const BackImage = styled(Image)`

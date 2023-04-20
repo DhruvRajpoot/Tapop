@@ -18,7 +18,7 @@ export const SidebarWrapper = styled.div`
   padding: 2rem 0;
   transition: all 0.3s ease-in-out;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     position: fixed;
     width: 100vw;
     gap: 2rem;
@@ -36,7 +36,7 @@ export const LogoContainer = styled.div`
 `;
 
 export const SideLogoWrapper = styled(LogoWrapper)`
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     display: none;
   }
 `;

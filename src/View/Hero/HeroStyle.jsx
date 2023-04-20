@@ -6,6 +6,10 @@ export const HeroContainer=styled.div`
     width: 100%;
     gap: 1rem;
 
+    @media (min-width:500px) and (max-width: 992px) {
+        min-height: 120vh;
+    }
+
     @media (max-width: 768px) {
         flex-direction: column;
     }

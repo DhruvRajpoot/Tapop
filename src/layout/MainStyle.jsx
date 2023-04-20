@@ -12,7 +12,7 @@ background: linear-gradient(90deg, rgba(212,217,255,0.8040266106442577) 70%, rgb
   padding: calc(.5rem + 1.5vw);
   position: relative;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     width: 100vw;
     min-height: calc(100vh - 5rem);
   }
